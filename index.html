@@ -1,0 +1,169 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+
+  <style>
+    .container1 {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .input-container,
+    .result-container {
+      flex: 1;
+      height: 100vh; /* Adjust the height as per your preference */
+      overflow: auto;
+      padding: 20px;
+    }
+
+    .input-container {
+      background-color: lightblue; /* Adjust the background color as per your preference */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bold-input {
+      width: 100%;
+      height: 100%;
+      font-size: 18px; /* Adjust the font size as per your preference */
+      padding: 8px; /* Adjust the padding as per your preference */
+      align-self: flex-start;
+      position: relative;
+    }
+
+    .bold-input::placeholder {
+      position: absolute;
+      top: 0;
+      padding-top: 8px; /* Adjust the padding as per your preference */
+    }
+
+    .result-container {
+      background-color: lightgreen; /* Adjust the background color as per your preference */
+    }
+
+    .bold-result {
+      font-size: 16px; /* Adjust the font size as per your preference */
+      font-weight: bold; /* Adjust the font weight as per your preference */
+    }
+    
+    .bold-heading {
+      font-size: 24px; /* Adjust the font size as per your preference */
+      font-weight: bold; /* Adjust the font weight as per your preference */
+      margin-bottom: 20px;    /* Adjust the margin as per your preference */
+      
+    }
+    .r-p{
+    padding-bottom:10px;
+    padding-top:30px;
+    
+    }
+      @media (max-width: 768px) {
+      .container1 {
+        flex-direction: column;
+      }
+
+      .input-container,
+      .result-container {
+        
+      height: auto; /* Adjust the height as per your preference */
+      
+      }
+
+      .bold-heading {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .bold-result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <div class="input-container">
+      <h3 class="flag-text">Bold Text Generator</h3>
+      <input id="bold-txt" class="bold-input" placeholder="Enter your text here">
+      <button onclick="generateBoldText()">Generate Bold Text</button>
+    </div>
+    <div class="result-container">
+      <h3 class="flag-text">Result</h3>
+      <div id="bold-result"></div>
+    </div>
+  </div>
+
+  <script>
+    function generateBoldText() {
+      var input = document.getElementById("bold-txt").value;
+      var resultContainer = document.getElementById("bold-result");
+      
+      // Clear previous results
+      resultContainer.innerHTML = "";
+      
+      // Define an array of font names
+      var fonts = [
+  "Sofia",
+  "Roboto",
+  "Open Sans",
+  "Montserrat",
+  "Lato",
+  "Oswald",
+  "Source Sans Pro",
+  "Raleway",
+  "Noto Sans",
+  "Playfair Display",
+  "Ubuntu",
+  "Poppins",
+  "Merriweather",
+  "Roboto Condensed",
+  "Lora",
+  "PT Sans",
+  "Quicksand",
+  "Inconsolata",
+  "Pacifico",
+  "Cabin",
+  "Josefin Sans",
+  "Droid Sans",
+  "Nunito",
+  "Karla",
+  "Rubik",
+  "Titillium Web"
+];
+      
+      // Iterate through each font and create a result element
+      fonts.forEach(function(font) {
+        var resultElement = document.createElement("p");
+         resultElement.className = "r-p"; 
+        resultElement.className = "bold-result";
+        resultElement.style.fontFamily = font;
+        resultElement.innerHTML = "<span class='bold-heading'>" + font + "</span><br><strong>"+"</span>" + "<strong>" + input + "</strong>";
+        resultContainer.appendChild(resultElement);
+      });
+    }
+  </script>
+</body>
